@@ -1,2 +1,1 @@
-# recursao
-Atividade sobre recursão
+Atividade sobre indução
