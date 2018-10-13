@@ -38,23 +38,32 @@ Imaginemos que temos uma escada infinita, e queremos saber se podemos alcançar 
   \hrule
 \end{description}
 Suponha que deseja-se provar que essa propriedade vale para todos os números do conjunto dos Naturais.
-\begin{center}
-  1 + 2 + 3 +....+ n = n(n + 1)/ 2
-\end{center}
+\begin{quote}
+  \[1 + 2 3 +.....+ n = \frac{n(n + 1)}{2}\]
+\end{quote}
 \begin{itemize}
 \item O primeiro passo, e mostrar que essa propriedade é válida par um 'n' qualquer.
   Esse passo é chamado de `Base de Indução(B.I).`
   \begin{center}
-    P(n) = n(n + 1)/ 2.
+    \[P(n)=\frac{n(n + 1)}{2}\]
 
     Vamos começar essa prova com n = 1.
 
-    P(1) = 1(1 + 1)/ 2 = 1.
+    \[P(1) = \frac {1(1 + 1)}{2} = 1\]
   \end{center}
 \item Assumindo que a propriedade vale para um `n` qualquer, pela definição podemos provar que essa propriedade vale para o seu sucessor que é `n + 1`.Esse passo é chamado de `Passo Indutivo(P.I).`
   Devemos mostrar que n + 1 é verdadeiro, ou seja
   \begin{center}
-    1 + 2 + 3 +....+ n + (n + 1) = 
+    1 + 2 + 3 +....+ n + (n + 1) \[ = \frac{(n + 1) [(n + 1) + 1])}{2}\frac{(n +1)(n + 2)}{2}\]
+    também é verdadeira. Quando adicionamos (n + 1) em ambos os lados da equação P(n), obtemos
+
+    \[1 + 2 + 3 +.....+ (n + 1) = \frac{n(n + 1)}{2}\ + (n + 1)\]
+    \[ = \frac{n(n + 1) + 2(n + 1)}{2}\]
+    \[ = \frac{(n + 1) + (n + 1)}{2}\]
+    \item Completamos os passos da base e indução. Assim, pela indução matemática, sabemos que P(n) é verdadeira para todos os números inteiros positivos n.
+
+    
+    \end{center}
   \end{itemize}
 \section{Indução Estrutural}
 
