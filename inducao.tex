@@ -10,6 +10,7 @@
 \usepackage{times} % assumes new font selection scheme installed
 \usepackage{amsmath} % assumes amsmath package installed
 \usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{amsfonts} 
 
 \title{\LARGE \bf
  Indução e suas Aplicações
@@ -27,7 +28,7 @@ Neste trabalho mostraremos diversas utilizações do princípio de indução em 
 \end{abstract}
 
 \section{Introdução}
-Indução Matemática é uma técnica de demonstração usada para provar que dado um número possui certa propriedade, e é demonstrado que o sucessor desse número também a possui. Geralmente a indução é associada ao conjunto dos números naturais \textbf{N*} (1, 2, 3...). A indução Matemática pode ser empregada sempre que o conjunto em questão puder ser gerado por meios de definições indutivas.
+Indução Matemática é uma técnica de demonstração usada para provar que dado um número possui certa propriedade, e é demonstrado que o sucessor desse número também a possui. Geralmente a indução é associada ao conjunto dos números naturais $\mathbb{N}$ (1, 2, 3...). A indução Matemática pode ser empregada sempre que o conjunto em questão puder ser gerado por meios de definições indutivas.
 Imaginemos que temos uma escada infinita, e queremos saber se podemos alcançar todos os degraus dessa escada.
 \begin{itemize}
 \item Podemos alcançar o primeiro degrau da escada.
@@ -37,7 +38,7 @@ Imaginemos que temos uma escada infinita, e queremos saber se podemos alcançar 
 \item \textbf{Exemplo}
   \hrule
 \end{description}
-Suponha que deseja-se provar que essa propriedade vale para todos os números do conjunto dos Naturais.
+Suponha que deseja-se provar que essa propriedade vale para todos os números do conjunto dos Naturais $\mathbb{N}$.
 \begin{quote}
   \[1 + 2 3 +.....+ n = \frac{n(n + 1)}{2}\]
 \end{quote}
@@ -64,9 +65,59 @@ Suponha que deseja-se provar que essa propriedade vale para todos os números do
 
     
     \end{center}
-  \end{itemize}
-\section{Indução Estrutural}
+\end{itemize}
+\hrule
+\section{Indução Completa}
+O passo base de uma demonstração por indução completa, é o mesmo usado na indução matemática. Para demonstrar que P(n) é verdadeira para todos os números inteiros positivos n, em que P(n) é uma função proposicional, seguimos os dois passo a seguir:
+\begin{itemize}
+\item \textbf{PASSO BASE} Seguindo o principio da indução matemática, o primeiro passo é verificar se P(1) é verdadeira.
+\item \textbf{PASSO DE INDUÇÃO} Nesse passo vamos mostrar que a proposição condicional [P(1) /\ P(2) /\ P(3)...../\ P(N)] -> P(N + 1) é verdadeira para todos os números inteiros positivos n.
+\item Dependendo do caso a ser provado, pode ser mais conveniente usar a indução matemática ou a indução completa, de uma maneira mais geral, o tipo de indução que vai ser usada, sempre vai depender do caso a ser provado.
+\end{itemize}
+\hrule
+\newpage
 
+\section{Indução Estrutural}
+A indução estrutural pode ser entendida como uma generalização da indução matemática. A indução estrutural é usada para provar uma propriedade P para todos os elementos de um conjunto definido recursivamente. A indução matemática é fortemente ligada na estrutura recursiva dos números naturais, mas com a indução estrutural podemos apliar essa aplicação para outras estruturas definidas recursivamente.
+\begin{itemize}
+\item \textbf{PASSO BASE} Mostre como os resultados se mantêm para todos os elementos especificados no passo base da definição recursiva que pertencerem a um conjunto.
+\item \textbf{PASSO RECURSIVO} Mostre que, se a proposição for verdadeira para cada um dos elementos usados para formar novos elementos no passo recursivo da definição, o resultado se mantém para novos elementos.
+\end{itemize}
+A indução estrutural pode ser usada para demonstrar que todos os elementos de um determinado conjunto construído recursivamente, têm uma propriedade particular.
+\begin{quote}
+  \textbf{Exemplo}
+  \hrule
+\end{quote}
+Vamos mostrar que toda fórmula bem formada contém o mesmo número de parênteses á esquerda e á direita.
+\begin{itemize}
+\item Envolvem \textbf{V} e \textbf{F}
+\item Variáveis proposicionais.
+\item Operadores do Conjunto> ({$\neg$, $\vee$, $\wedge$, $\to$, $\leftrightarrow$}).
+\end{itemize}
+\textbf{Resolução}
+\begin{quote}
+  \textbf{Passo base}: As fórmulas \textbf{V}, \textbf{F} e p(sendo p uma variavel proposicional), não contém parênteses, portanto o mesmo número de parênteses á esquerda e á direitra são iguais (que é igual a 0).
+
+  \textbf{Passo Indutivo}: Assuma que p e q são fórmulas bem formadas contendo o mesmo número de parênteses á esquerda e á direita. Ou seja, se l é o número de parênteses á esquerda e r e o número de parênteses á direita então: $l_{p}$ = $l_{q}$ e $r_{p}$ = $r_{q}$.
+
+  Assumindo que  $l_{p}$ = $l_{q}$ e $r_{p}$ = $r_{q}$
+
+  Precisamos mostrar que contém o mesmo números de parênteses:
+  ($\neg P$), (P$\wedge Q$), (P$\vee Q$), (P$\to Q$), (P$\leftrightarrow Q$).
+
+  Número de parênteses á esquerda:
+
+  Em ($\neg P$): $l_{p}$ + 1.
+
+  Nos demais: $l_{p}$ + $l_{q}$ + 1.
+
+  Número de parênteses á direita:
+
+  Em ($\neg P$): $r_{p}$ + 1.
+
+  Nos demais: $r_{p}$ + $r_{q}$ + 1.
+
+  Uma vez que $l_{p} =  $r_{p} e $l_{q} =  $r_{q}$ estes números são iguais.
 
 \section{Conclusão}
 
