@@ -10,7 +10,8 @@
 \usepackage{times} % assumes new font selection scheme installed
 \usepackage{amsmath} % assumes amsmath package installed
 \usepackage{amssymb}  % assumes amsmath package installed
-\usepackage{amsfonts} 
+\usepackage{amsfonts}
+\usepackage{amsthm}
 
 \title{\LARGE \bf
  Indução e suas Aplicações
@@ -117,7 +118,30 @@ Vamos mostrar que toda fórmula bem formada contém o mesmo número de parêntes
 
   Nos demais: $r_{p}$ + $r_{q}$ + 1.
 
-  Uma vez que $l_{p} =  $r_{p} e $l_{q} =  $r_{q}$ estes números são iguais.
+  Uma vez que $l_{p}$ =  $r_{p} e $l_{q} =  $r_{q}$ estes números são iguais.
+  \newtheorem{mydef}{Definição}
+\begin{mydef}
+O conjunto de árvores com raiz, em que uma árvore com raiz consistem em um conjunto de vértices que contém um vértice distinto, que chamamos de raiz, e arestas que conectam esses vértices, pode ser definido recursivamente por esses passos:
+\end{mydef}
+\begin{itemize}
+    \item \textbf{PASSO BASE} Um único vértice r é uma árvore com raiz.
+    \item \textbf{PASSO INDUTIVO} Suponha que $T_{1}$, $T_{2}$,....,$T_{n}$ são árvores disjuntas que possuem raízes $r_{1}$, $r_{2}$,....,$r_{n}$. Então, o grafo formado começando com uma raiz r, que não esteja em nenhuma das árvores com raízes $T_{1}$, $T_{2}$,....,$T_{n}$, e adicionando uma aresta a partir de r a cada um dos vértices $r_{1}$, $r_{2}$,....,$r_{n}$, é também uma árvore com raiz.
+\end{itemize}
+\textbf{Altura}:
+\begin{itemize}
+    \item A altura de um nó em uma árvore é o maior comprimento do nó até uma folha.
+    \item A altura de uma árvore é a altura de sua raiz.
+    \item Altura da árvore é a maior profundidade de qualquer nó na árvore.
+\end{itemize}
+\newpage
+\section{Resolução dos Problemas}
+Depois de definir o que é indução matemática e indução estrutural, vamos resolver dois problemas que foi proposto. Nessas duas questões a ser resolvidas, vamos usar os conceitos que estabelecemos na primeira parte desse documento para nos ajudar na solução. Cada passo irá ser detalhadamente exposto nesse trabalho, para o leitor ter um bom entendimento de como foi resolvida cada questão.
+\hrule
+\begin{quote}
+  \textbf{PROBLEMA 1}
+  \end{quote}
+
+
 
 \section{Conclusão}
 
