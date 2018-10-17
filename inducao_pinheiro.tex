@@ -1,0 +1,195 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+
+% The following packages can be found on http:\\www.ctan.org
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{epsfig}   % for postscript graphics files
+\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times}    % assumes new font selection scheme installed
+\usepackage{amsmath}  % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{makeidx}  % cria indice remissivo \makeindex no preanbulo, \printindex no final do texto para colocação do indice remissivo e \index{} para marcar a palavra que deve ser colocada no indice.
+\usepackage{prftree}
+\usepackage{bussproofs}
+
+\title{\LARGE \bf O Princípio da Indução e suas Aplicações }
+
+\author{Felipe Luís Pinheiro\footnote{matricula:18/0052667}}
+
+\date{ 18 de novembro de 2018}
+
+\makeindex
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+Neste trabalho mostraremos diversas utilizações do princípio de indução em Ciência da Computação.
+
+Começamos discutindo o principio da indução e suas implicações, posteriormente definimos os problemas a serem discutidos e por fim discutimos os problemas propostos até a sua completa solução.
+
+\end{abstract}
+
+\section{Introdução}
+
+%fazer revisão (curta) sobre indução
+Principio da Indução finita \textbf{(PIM)} \index{Indução finita} é formalmente definido como:\\
+\textbf{Definição 1}. Seja $P(n)$ uma quantidade associada aos números naturais. $P$ é um predicado unário cujo argumento é um número natura, e suponhamos que:
+\begin{description}
+	\item[Base de Indução (BI)]: \index{Base de Indução (BI)} $p(1)$ é verdadeiro;
+	\item[Passo Indutivo (PI)]: \index{Passo Indutivo (PI)} para todo número natura $n$, se $P(n)$ é verdadeiro então $P(n+1)$ é verdadeiro
+\end{description}
+Nesta condição, a propriedade $p(n)$ é verdadeira para todo número natural $n$.
+
+Para se realizar uma prova mediante processo indutivo devemos provar que \textbf{BI} é verdadeiro, o que pode ser provado mediante aplicação direta da propriedade em estudo, e após devemos realizar o \textbf{PI} e provar que a propriedade continua válida para $n+1$ qualquer, considerando que ela é válida pra $n$.
+
+também pode ocorrer de existir uma propriedade que só comece a ser válida depois de algum valor específico, sendo assim definimos o principio da indução finita generalizada \textbf{(PIMG)} \index{Indução finita generalizada} como:\\
+\textbf{Definição 2}: Seja $p(n)$ uma propriedade sobre os números naturais que satisfaz as seguintes condições: 
+\begin{description}
+	\item[(BI)]: O número natural $m_0$ satisfaz a propriedade $p$;
+	\item[(PI)]: Se um número natural $n$ satisfaz a propriedade $P$ então seu sucessor também satisfaz a propriedade $P$.
+\end{description}
+Então todos os números naturais maiores ou iguais a $m_0$ satisfazem a propriedade $P$.
+
+Para finalizar precisamos definir o principio da indução forte \textbf{(PIF)}, como:\\
+\textbf{Teorema 1}: Seja $P$ uma propriedade referente aos números naturais. Dado $n \in \mathbb{N}$, se a validade de $P$ para todo número natural menor do que $n$ implicar  que $P$ é verdadeiro para $n$, então $P$ é verdadeira para todos os números naturais. Ou ainda, se $\forall_n ( \forall_m ,\, m < n \rightarrow P(m)) \rightarrow p(n)$ então $\forall_n ,\, P(n)$.
+
+
+\section{Indução Estrutural}
+%fazer revisão (curta) sobre indução estrutural
+
+\section{Correção}
+%fazer revisão (curta) sonre correção
+
+\section{Problemas}
+
+Nesta seção mostramos os dois problemas a serem discutidos e também mostramos as suas respectivas soluções.
+
+\subsection{Problema 1}
+
+\textbf{Problema 1}: Prove a equivalência entre os princípios da indução forte (PIF) e da indução matemática (PIM)\cite{Apostila}.
+
+Precisamos provar que PIF $\Leftrightarrow$ PIM, ou seja, PIF $\rightarrow$ PIM e PIM $\rightarrow$ PIF, para fazer isso queremos escrever tanto o PIF como o PIM como sequentes de lógica indutiva e fazer a arvore de demonstração. 
+
+Desta forma podemos escrever o PIFG como sequente da seguinte forma
+\begin{equation}
+\exists_m \psi \to \forall_n \psi \textrm{, com } n > m
+\label{eq:pifg}
+\end{equation}
+e o PIM como
+\begin{equation}
+\forall_m \psi \to \forall_n \psi \textrm{, com } n > m.
+\label{eq:pim}
+\end{equation}
+
+Em ambos os caso vemos que $n > m$, logo é um cuidado extra que temos que tomar durante a nossa demonstração. Seguimos a abaixo com a demonstração das arvores de prova. 
+
+\subsubsection*{PIFG $\rightarrow$ PIM}
+Nosso objetivo agora é provar a implicação PIF $\rightarrow$ PIM, ou seja, o sequente 
+
+\begin{equation}
+\exists_m \psi \to \forall_n \psi \vdash \forall_m \psi \to \forall_n \psi
+\label{eq:proof1}
+\end{equation}
+
+
+\begin{prooftree}
+\AxiomC{$[\forall_m \psi]^a$}
+
+\RightLabel{$(\forall_e)$}
+\UnaryInfC{$\psi[m/x]$}
+
+\RightLabel{$(\exists_i)$}
+\UnaryInfC{$\exists_m \psi$}
+
+\RightLabel{$(\to_e)$}
+\AxiomC{$\exists_m \psi \to \forall_n \psi$}
+\BinaryInfC{$\forall_n \psi$}
+
+\RightLabel{$(\to_i)^a$}
+\UnaryInfC{$\forall_m \psi \to \forall_n \psi$}
+\end{prooftree}
+
+\subsubsection*{PIM $\rightarrow$ PIF}
+Agora queremos provar o sentido inverso, ou seja, a implicação PIM $\rightarrow$ PIF ou o sequente 
+
+\begin{equation}
+\forall_m \psi \to \forall_n \psi \vdash \exists_m \psi \to \forall_n \psi
+\label{eq:proof2}
+\end{equation}
+
+\begin{prooftree}
+
+\AxiomC{$[\psi]^a$}
+\AxiomC{$[\neg \psi]^b$}
+\RightLabel{$(\neg_e)$}
+
+\BinaryInfC{$\bot$}
+\RightLabel{(PBC)$^b$}
+
+\UnaryInfC{$\psi$}
+\AxiomC{$[\exists_m \psi]^c$}
+\RightLabel{$(\exists_e)^a$}
+
+\BinaryInfC{$\psi$}
+\RightLabel{$(\forall_i)$}
+
+\UnaryInfC{$\forall_m \psi$}
+\AxiomC{$\forall_m \psi \to \forall_n \psi$}
+\RightLabel{$(\to_e)$}
+
+\BinaryInfC{$\forall_n \psi$}
+\RightLabel{$(\to_i)^c$}
+
+\UnaryInfC{$\exists_m \psi \to \forall_n \psi$}
+\end{prooftree}
+
+Apesar de muito elegante essa prova ela está incompleta e possivelmente errada, pois não podemos fazer o passo $\exists_e$ do jeito que foi feito, por termos uma hipótese com variável livre como resultado, o que nos impede de usar esta regra nesse passo. 
+
+\subsection{Problema 2}
+
+\textbf{Problema 2}: Agora utilizaremos o conhecimento adquirido sobre indução para provar a correção de um algoritmo de ordenação de listas conhecido como ``insertion sort'', ou ordenação por inserção. O pseudocódigo deste algoritmo é dado a seguir:
+
+    \begin{equation*}
+        \textrm{insertionSort}(l) =
+        \left\{
+      \begin{array}{ll}
+        l, & \textrm{se } l = [] \\
+        \textrm{insert}(h, \textrm{insertSort}(l')), & \textrm{se } l = h :: l'
+      \end{array}
+    \right.
+    \end{equation*}
+		
+onde 
+
+    \begin{equation*}
+        \textrm{insert}(x,l) =
+        \left\{
+      \begin{array}{ll}
+        x::[], & \textrm{se } l = [] \\
+        x::l, & \textrm{se } l = h::l' \textrm{ e } x \leq h \\
+        , & \textrm{ e } x > h 
+      \end{array}
+    \right.
+    \end{equation*}
+
+Nosso objetivo é provar que o algoritmo acima é correto, mas o que isto significa? Como expressar este fato por meio de um teorema? Quais passos intermediários você julga que serão necessários para provar este teorema? Explique e justifique sua solução, e os passos que utilizou para obtê-la, de forma clara e completa por meio de um relatório detalhado\cite{Apostila}.
+
+
+\section{Conclusão}
+
+\begin{thebibliography}{9}
+
+\bibitem{Apostila}
+Flávio L. C. de Moura (Prof.).
+\textit{Indução Matemática}.
+
+
+\end{thebibliography}
+
+%\printindex
+
+\end{document}
