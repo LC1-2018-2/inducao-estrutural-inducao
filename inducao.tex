@@ -139,21 +139,76 @@ O conjunto de árvores com raiz, em que uma árvore com raiz consistem em um con
 Depois de definir o que é indução matemática e indução estrutural, vamos resolver dois problemas que foi proposto. Nessas duas questões a ser resolvidas, vamos usar os conceitos que estabelecemos na primeira parte desse documento para nos ajudar na solução. Cada passo irá ser detalhadamente exposto nesse trabalho, para o leitor ter um bom entendimento de como foi resolvida cada questão.
 \hrule
 \begin{quote}
-        \textbf{PROBLEMA 1}
-       Prove a equivalência entre os princípios da indução forte (PIF) e da indução matemática (PIM).
+  \textbf{PROBLEMA 1}
+        Prove a equivalência entre os princípios da indução forte (PIF) e da indução matemática (PIM).
+        \newline
+        \textbf{PARTE 1}.
+        
         
         \textbf{Isto quer dizer que PIF $\leftrightarrow$ PIM.}
        
        
-        Vamos começar a resolução desse problema, provando um lado da implicação, que é PIF $\to$ PIM. De uma maneira intuitiva, podemos perceber que provar esse lado da implicação é algo relativamente mais simples, porque se assumimos que a indução forte vale, então o princípio da indução fraca é verdadeira.
+        Vamos começar a resolução desse problema, provando um lado da implicação, que é \textbf{PIF $\to$ PIM}. De uma maneira intuitiva, podemos perceber que provar esse lado da implicação é algo relativamente mais simples, porque se assumimos que a indução forte vale, então o princípio da indução fraca é verdadeira.
         \begin{itemize}
             \item Começamos a resolução dessa parte da implicação, notando que o primeiro passo da indução forte e da fraca são iguais, o que difere uma da outra, e a partir do passo indutivo. Na segunda etapa da indução forte, temos que: P(1) $\wedge$ P(2) $\wedge$.....$\wedge$ P(n) $\to$ P(n + 1). Relembrando o segundo passo da indução fraca, temos algo mais simples P(n) $\to$ P( n +1).
             
             \item Assumindo que o passo base da indução forte é verdadeiro, então consequentemente o passo base da indução fraca também é verídico, porque podemos consumar P( n + 1) a partir de P(a) para todo \textbf{A} entre 1 $>=$ a $<=$ n. No passo indutivo da indução forte, temos que provar que P(1) $\wedge$ P(2) $\wedge$.....$\wedge$ P(n) $\to$ P(n + 1) mas P(1) $\wedge$ P(2) $\wedge$.....$\wedge$ P(n) $\to$ P(n) e, da afirmação do passo indutivo da indução fraca temos que  P(n) $\to$ P( n +1), logo começamos a deixar a questão mais interessante, pois percebemos uma equivalência entre as duas induções. 
             \item De uma forma geral, acabamos de provar a equivalência entre PIF e PIM, pois o primeiro passo de ambas são iguais, então se P(n) vale em PIF implica que P(n) é verdadeiro para PIM, o segundo passo segue o raciocínio do item que explicamos acima. 
         \end{itemize}
+        \hrule
+        \textbf{PARTE 2}
+            Nessa parte, vamos tentar provar o outro lado da implicação, \textbf{PIM} $\to$ \textbf{PIF}.
+            \begin{itemize}
+                \item Qualquer que seja a propriedade P(n), definida sobre todos os naturais, tem-se:
+               \newline
+                   (1). (P(1) $\wedge$ $\forall n  $ (P(n) $\to$ P(n + 1))$\to$ $\forall n $ P(n). 
+                   
+                   Então qualquer propriedade definida sobre os naturais, tem que conter isso:
+                   
+                   (2). (P(1) $\wedge$ $\forall n  $ (P(1)$\wedge$....$\wedge$P(n) $\to$ P(n + 1))$\to$ $\forall n $ P(n). 
+                   
+                 
+                   Queremos provar que $\forall n$ P(n).         
+                   \newline
+                   Seja Q(n) a seguinte propriedade (lembrando que a mesma está definida para o conjunto dos números naturais).
+                  \newline
+                   Q(n) = $\forall k $ (k $\leq$ n $\to$ P(k) $\to$ P(n + 1)) com K $\in$ $\mathbb{N}$.
+                   \item Verifica-se que Q(1) (Pois Q(1) é equivalente a P(1) e consequentemente verifica-se P(1)).
+                   \item Vamos verificar que $\forall n $ (Q(n) $\to$ Q(n + 1)).
+                   Seja n $\in$ $\mathbb{N}$.
+                   \newline
+                   Se P(1) $\wedge$.....$\wedge$ P(n) $\to$ P(n + 1), então P(1) $\wedge$.....$\wedge$ P(n) $\to$ P(1)$\wedge$.....$\wedge$ P(n) $\wedge$ P(n + 1).
+                   
+                   Logo, por hipótese $\forall n  $ (P(1) $\wedge$....$\wedge$ P(n) $\to$ P(n + 1)), tem-se que:
+                   
+                   $\forall n $ (Q(n) $\to$ Q(n + 1)).
+                   
+                   Por hipótese (2) verifica-se para qualquer propriedade definida sobre os naturais, e portanto também se verifica para Q(n), podemos concluir que:
+                   
+                   $\forall n $ Q(n).
+                   \item Qualquer que seja o natural \textbf{n} Q(n) $\to$ P(n), pois Q(n) = P(1) $\wedge$....$\wedge$ P(n) $\to$ P(n + 1).
+                   
+                   Observação:
+                   
+                   Se fizermos uma análise de uma maneira bem cautelosa podemos constatar o passo 2 da PIM e equivalente ao passo 2 da PIF:
+                   \newline
+                   Passo 2 do PIM: Qualquer que seja o natural n, se P(n) é verdadeiro, então P(n + 1) também é verdadeira.
+                   \newline
+                   Passo 2 do PIF: Qualquer que seja o natural n, se P(1)$\wedge$....$\wedge$ P(n) são verdadeiras, então P(n + 1) também é verdadeira.
+         
+            \end{itemize}
     \end{quote}
-
+    \hrule
+  
+    \begin{quote}
+     
+        \textbf{PROBLEMA 2}
+        Agora utilizaremos o conhecimento adquirido sobre indução para provar a correção de um algoritmo de ordenação de listas conhecido como insertion sort, ou ordenação por inserção.
+O pseudocódigo deste algoritmo é dado a seguir:
+\begin{quote}
+    InsertionSort(l) = 
+\end{quote}
+    \end{quote}
 
 
 \section{Conclusão}
